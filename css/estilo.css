@@ -30,7 +30,7 @@
 }
 
 #mostrar-dados {
-    display: flex;
+    display: none;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
@@ -38,4 +38,8 @@
     height: 300px;
     border: 1px solid orangered;
     text-align: center;
+}
+
+.tabelas-dados {
+    border: 1px solid orange;
 }
