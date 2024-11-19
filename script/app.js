@@ -23,13 +23,15 @@ async function criarTabela() {
     try {
         const resposta = await carregarDados();
         carregando.style.display = 'none';
+        mostrarDados.innerHTML = '';
         mostrarDados.style.display = 'flex'
         console.log(resposta);
         resposta.forEach((objeto, index) => {
             const tabelas = document.createElement('table');
             const tbody = document.createElement('tbody');
             tabelas.classList.add('tabelas-dados');
-            container.appendChild(tabelas);
+            mostrarDados.appendChild(tabelas);
+            tabelas.appendChild(tbody);
             
             Object.entries(objeto).forEach(([chave, valor]) => {
                 const linha = document.createElement('tr');
@@ -40,12 +42,12 @@ async function criarTabela() {
                 linha.appendChild(td);
                 th.innerHTML = chave;
                 td.innerHTML = valor;
-            })
-            tabelas.appendChild(tbody);
-
-            })
+            });
+            });
         }
         catch (erro) {
+            carregando.style.display = 'none'
+            mensagemDados.innerHTML = erro;
             console.error(erro);
         }
     }

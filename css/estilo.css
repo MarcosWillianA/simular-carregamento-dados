@@ -26,6 +26,7 @@
     height: 300px;
     padding: 15px;
     border: 1px solid orangered;
+    background-color: lightcoral;
     text-align: center;
 }
 
@@ -35,11 +36,19 @@
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    height: 300px;
-    border: 1px solid orangered;
+    gap: 10px;
     text-align: center;
 }
 
 .tabelas-dados {
+    border-collapse: collapse;
     border: 1px solid orange;
+}
+
+th, td {
+    padding: 5px;
+    border: 1px solid black;
+    text-align: left;
+    text-transform: capitalize;
+    
 }
