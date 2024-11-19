@@ -25,25 +25,29 @@ async function criarTabela() {
         carregando.style.display = 'none';
         mostrarDados.style.display = 'flex'
         console.log(resposta);
-        resposta.forEach(objeto => {
+        resposta.forEach((objeto, index) => {
             const tabelas = document.createElement('table');
+            const tbody = document.createElement('tbody');
             tabelas.classList.add('tabelas-dados');
             container.appendChild(tabelas);
-
-            tabelas.forEach((tabela, indice) => {
-                const tbody = document.createElement('tbody');
-                const tr = document.createElement('tr');
+            
+            Object.entries(objeto).forEach(([chave, valor]) => {
+                const linha = document.createElement('tr');
                 const th = document.createElement('th');
                 const td = document.createElement('td');
-
-                
+                tbody.appendChild(linha);
+                linha.appendChild(th);
+                linha.appendChild(td);
+                th.innerHTML = chave;
+                td.innerHTML = valor;
             })
-        })
-        
+            tabelas.appendChild(tbody);
+
+            })
+        }
+        catch (erro) {
+            console.error(erro);
+        }
     }
-    catch (erro) {
-        console.error(erro);
-    }
-}
 
 criarTabela();
